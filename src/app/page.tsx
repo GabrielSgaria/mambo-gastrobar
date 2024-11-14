@@ -34,20 +34,26 @@ export default function Component() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <div className="relative w-full">
-      <motion.header
+    <div className="relative w-full" >
+       <motion.header
         style={{ backgroundColor: useTransform(springScrollYProgress, [0, 0.1], ["rgba(0,0,0,0)", "rgba(0,0,0,0.8)"]) }}
         className="fixed top-0 left-0 right-0 z-50 py-4"
       >
         <nav className="container mx-auto px-4 flex justify-between items-center">
-          <motion.span
-            className="text-2xl font-bold text-white"
+          <motion.div
+            className="flex items-center"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            MAMBO
-          </motion.span>
+            <Image
+              src="/images/logo.png"
+              alt="Mambo Gastrobar Logo"
+              width={150}
+              height={50}
+              className="h-14 w-auto"
+            />
+          </motion.div>
           <motion.div
             className="hidden md:flex space-x-4"
             initial={{ opacity: 0, x: 20 }}
@@ -83,8 +89,15 @@ export default function Component() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="fixed inset-0 bg-black z-40 flex items-center justify-center"
+          className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center"
         >
+          <Image
+            src="/images/logo.png"
+            alt="Mambo Gastrobar Logo"
+            width={150}
+            height={60}
+            className="h-16 w-auto mb-8"
+          />
           <div className="flex flex-col items-center space-y-4">
             {["Início", "Menu", "Eventos", "Galeria", "Contato"].map((item) => (
               <motion.a
@@ -207,10 +220,10 @@ export default function Component() {
 
         <div className='relative z-10'>
           <CTASection />
+        <Footer />
         </div>
 
 
-        <Footer />
       </div>
     </div>
   )
