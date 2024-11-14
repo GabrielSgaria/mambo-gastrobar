@@ -13,6 +13,7 @@ import CTASection from '@/components/cta-section'
 import Footer from '@/components/footer'
 import LocationSection from '@/components/location-section'
 import { Ticket } from 'lucide-react'
+import LiveMusicSection from '@/components/live-music'
 
 export default function Component() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -108,9 +109,9 @@ export default function Component() {
         >
           <div className="relative w-full h-full">
             <Image
-              src="/images/drinks/12.jpg"
+              src="/images/fires/1.jpg"
               alt="Drink especial do Reveillon"
-              className="object-cover object-right md:object-center (min-width: 808px) 50vw, 100vw"
+              className="object-cover object-center (min-width: 808px) 50vw, 100vw"
               quality={100}
               fill
               priority
@@ -159,12 +160,16 @@ export default function Component() {
           <CocktailShowcase />
           <OpenBarSection />
           <SectionAmbient />
+          <LiveMusicSection />
         </div>
 
 
         <TicketSection />
 
-        <section id="galeria" className="py-24 bg-white">
+        <section id="galeria" className="py-24 bg-white relative">
+          {/* Top gradient */}
+          <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-black via-black/10 to-transparent" />
+
           <div className="container mx-auto px-4">
             {/* <motion.h2
               initial={{ y: 50, opacity: 0 }}

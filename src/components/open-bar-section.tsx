@@ -14,6 +14,12 @@ export default function OpenBarSection() {
         className="object-cover object-center opacity-90 (min-width: 808px) 50vw, 100vw"
         priority
       />
+
+      {/* Top gradient */}
+      <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black via-black/20 to-transparent" />
+      {/* Bottom gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black via-black/20 to-transparent" />
+      
       <div className="absolute inset-0 bg-gradient-to-l from-black via-black/20 to-transparent" />
 
       <div className="relative container mx-auto px-4 min-h-screen flex items-center justify-end">

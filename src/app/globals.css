@@ -76,3 +76,12 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+.font-galeto {
+  font-family: var(--font-galeto-vintage), serif;
+}
+
+.font-gotham {
+  font-family: var(--font-gotham), sans-serif;
+}
