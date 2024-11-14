@@ -2,7 +2,7 @@
 
 import { Facebook, Instagram, Twitter, MapPin, Phone, Mail, Clock } from 'lucide-react'
 import Link from 'next/link'
-import Image from 'next/image'
+// import Image from 'next/image'
 
 export default function Footer() {
   return (
