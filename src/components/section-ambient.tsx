@@ -19,6 +19,12 @@ const images = [
   { src: "/images/bar/5.jpg", alt: "Detalhes da iluminação ambiente" },
   { src: "/images/bar/6.jpg", alt: "Área do bar com iluminação aconchegante" },
   { src: "/images/bar/7.jpg", alt: "Espaço para refeições com decoração rústica" },
+  { src: "/images/bar/8.jpg", alt: "Espaço para refeições com decoração rústica" },
+  { src: "/images/bar/9.jpg", alt: "Espaço para refeições com decoração rústica" },
+  { src: "/images/bar/10.jpg", alt: "Espaço para refeições com decoração rústica" },
+  { src: "/images/bar/11.jpg", alt: "Espaço para refeições com decoração rústica" },
+  { src: "/images/bar/12.jpg", alt: "Espaço para refeições com decoração rústica" },
+  { src: "/images/bar/13.jpg", alt: "Espaço para refeições com decoração rústica" },
 ]
 
 export default function AmbienteSlider() {
@@ -35,6 +41,18 @@ export default function AmbienteSlider() {
     setActiveIndex(swiper.realIndex)
   }
 
+  const handlePrev = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slidePrev();
+    }
+  };
+
+  const handleNext = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slideNext();
+    }
+  };
+
   return (
     <section className="py-12 md:py-24 bg-black">
       <div className="container mx-auto px-4">
@@ -48,57 +66,60 @@ export default function AmbienteSlider() {
           Nosso Ambiente
         </motion.h2>
 
-        <Swiper
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper
-          }}
-          slidesPerView={1}
-          spaceBetween={20}
-          centeredSlides={true}
-          loop={true}
-          navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }}
-          modules={[FreeMode, Navigation]}
-          onSlideChange={handleSlideChange}
-          className="ambiente-swiper"
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 3,
-              spaceBetween: 30,
-            },
-          }}
-        >
-          {images.map((image, index) => (
-            <SwiperSlide key={index} className="swiper-slide-auto">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{
-                  opacity: activeIndex === index ? 1 : 0.6,
-                  scale: activeIndex === index ? 1 : 0.8,
-                }}
-                transition={{ duration: 0.5 }}
-                className="relative aspect-[3/4] cursor-pointer"
-                onClick={() => handleImageClick(index)}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover rounded-lg"
-                  sizes="(max-width: 640px) 80vw, (max-width: 768px) 40vw, 33vw"
-                />
-              </motion.div>
-            </SwiperSlide>
-          ))}
-          <div className="swiper-button-next"></div>
-          <div className="swiper-button-prev"></div>
-        </Swiper>
+        <div className="relative">
+          <Swiper
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper
+            }}
+            slidesPerView={1}
+            spaceBetween={20}
+            centeredSlides={true}
+            loop={true}
+            navigation={true}
+            modules={[FreeMode, Navigation]}
+            onSlideChange={handleSlideChange}
+            className="ambiente-swiper"
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+            }}
+          >
+            {images.map((image, index) => (
+              <SwiperSlide key={index} className="swiper-slide-auto">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{
+                    opacity: activeIndex === index ? 1 : 0.6,
+                    scale: activeIndex === index ? 1 : 0.8,
+                  }}
+                  transition={{ duration: 0.5 }}
+                  className="relative aspect-[3/4] cursor-pointer"
+                  onClick={() => handleImageClick(index)}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    quality={100}
+                    className="object-cover rounded-lg"
+                    sizes="(max-width: 640px) 80vw, (max-width: 768px) 40vw, 33vw"
+                  />
+                </motion.div>
+              </SwiperSlide>
+            ))}
+
+            <button onClick={handlePrev} className="swiper-button-prev"></button>
+            <button onClick={handleNext} className="swiper-button-next"></button>
+          </Swiper>
+
+
+        </div>
       </div>
 
       <style jsx global>{`
@@ -114,11 +135,21 @@ export default function AmbienteSlider() {
         .ambiente-swiper .swiper-button-next,
         .ambiente-swiper .swiper-button-prev {
           color: #fbbf24;
+          cursor: pointer;
+        }
+        .ambiente-swiper .swiper-button-next::after,
+        .ambiente-swiper .swiper-button-prev::after {
+          font-size: 24px;
         }
         @media (max-width: 767px) {
           .ambiente-swiper .swiper-button-next,
           .ambiente-swiper .swiper-button-prev {
-            display: none;
+            width: 30px;
+            height: 30px;
+          }
+          .ambiente-swiper .swiper-button-next::after,
+          .ambiente-swiper .swiper-button-prev::after {
+            font-size: 20px;
           }
         }
       `}</style>

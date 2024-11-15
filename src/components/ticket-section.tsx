@@ -2,8 +2,9 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Button } from "@/components/ui/button"
 import { Ticket, Users, Baby, ChevronDown, ChevronUp } from 'lucide-react'
+import Link from 'next/link'
+import { Button } from './ui/button'
 
 export default function TicketSection() {
   const [expandedCategory, setExpandedCategory] = useState<number | null>(null)
@@ -115,10 +116,23 @@ export default function TicketSection() {
           <p className="text-zinc-300 text-lg mb-8">
             Parcelamento disponível em até 3 vezes!
           </p>
-          <Button className="bg-amber-400 text-black hover:bg-amber-500 text-lg px-8 py-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-amber-900/50">
-            <Ticket className="w-6 h-6 mr-2" />
-            Comprar Ingressos
-          </Button>
+          <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="mt-8"
+                  >
+                    <Button
+                      asChild
+                      size="lg"
+                      className="bg-amber-400 text-black hover:bg-amber-500 text-lg px-6 py-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl shadow-amber-900/50"
+                    >
+                      <Link href="https://wa.me/5541933009469" target="_blank" className="flex items-center justify-center">
+                        <Ticket className="w-6 h-6 mr-2" />
+                        Comprar Ingressos
+                      </Link>
+                    </Button>
+                  </motion.div>
         </motion.div>
       </div>
     </section>

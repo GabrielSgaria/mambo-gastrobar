@@ -2,7 +2,6 @@
 
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import SectionAmbient from '@/components/section-ambient'
 import MenuHighlightSection from '@/components/menu-highlight-section'
@@ -14,6 +13,8 @@ import Footer from '@/components/footer'
 import LocationSection from '@/components/location-section'
 import { Ticket } from 'lucide-react'
 import LiveMusicSection from '@/components/live-music'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 export default function Component() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -35,7 +36,7 @@ export default function Component() {
 
   return (
     <div className="relative w-full" >
-       <motion.header
+      <motion.header
         style={{ backgroundColor: useTransform(springScrollYProgress, [0, 0.1], ["rgba(0,0,0,0)", "rgba(0,0,0,0.8)"]) }}
         className="fixed top-0 left-0 right-0 z-50 py-4"
       >
@@ -153,14 +154,23 @@ export default function Component() {
                     Uma noite onde gastronomia sofisticada, ambiente festivo e muita animação se unem
                     para um momento inesquecível.
                   </p>
+
+
                   <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="mt-8"
                   >
-                    <Button className="bg-amber-400 text-black hover:bg-amber-500 text-lg px-8 py-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-amber-900/50">
-                      <Ticket className="w-6 h-6 mr-2" />
-                      Comprar Ingressos
+                    <Button
+                      asChild
+                      size="lg"
+                      className="bg-amber-400 text-black hover:bg-amber-500 text-lg px-6 py-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl shadow-amber-900/50"
+                    >
+                      <Link href="https://wa.me/5541933009469" target="_blank" className="flex items-center justify-center">
+                        <Ticket className="w-6 h-6 mr-2" />
+                        Comprar Ingressos
+                      </Link>
                     </Button>
                   </motion.div>
                 </motion.div>
@@ -220,7 +230,7 @@ export default function Component() {
 
         <div className='relative z-10'>
           <CTASection />
-        <Footer />
+          <Footer />
         </div>
 
 

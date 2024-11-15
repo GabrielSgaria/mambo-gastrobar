@@ -1,9 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Button } from "@/components/ui/button"
-import { CalendarClock } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { Button } from './ui/button'
+import { Ticket } from 'lucide-react'
 
 export default function CTASection() {
   return (
@@ -36,10 +37,23 @@ export default function CTASection() {
           <p className="text-lg text-zinc-100 mb-8 font-bold uppercase ">
             Reserve já seu ingresso e celebre o Ano Novo com todo o charme e exclusividade do Mambo Gastrobar!
           </p>
-          <Button className="bg-amber-400 text-black hover:bg-amber-500 text-lg px-8 py-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-amber-900/50">
-            <CalendarClock className="w-6 h-6 mr-2" />
-            Reservar Agora
-          </Button>
+          <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="mt-8"
+                  >
+                    <Button
+                      asChild
+                      size="lg"
+                      className="bg-amber-400 text-black hover:bg-amber-500 text-lg px-6 py-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl shadow-amber-900/50"
+                    >
+                      <Link href="https://wa.me/5541933009469" target="_blank" className="flex items-center justify-center">
+                        <Ticket className="w-6 h-6 mr-2" />
+                        Comprar Ingressos
+                      </Link>
+                    </Button>
+                  </motion.div>
         </motion.div>
       </div>
     </section>

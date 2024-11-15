@@ -42,7 +42,7 @@ export default function LocationSection() {
               <Phone className="w-6 h-6 text-amber-500 flex-shrink-0" />
               <div>
                 <p className="font-semibold text-zinc-800">Telefone</p>
-                <a href="tel:+5541920014371" className="text-zinc-600 hover:text-amber-500 transition-colors">
+                <a href="https://wa.me/5541933009469" className="text-zinc-600 hover:text-amber-500 transition-colors">
                   (41) 92001-4371
                 </a>
               </div>
@@ -60,9 +60,10 @@ export default function LocationSection() {
               <Clock className="w-6 h-6 text-amber-500 mt-1 flex-shrink-0" />
               <div>
                 <p className="font-semibold text-zinc-800">Horário de Funcionamento</p>
-                <p className="text-zinc-600">Segunda - Quinta: 18h - 00h</p>
-                <p className="text-zinc-600">Sexta - Sábado: 18h - 02h</p>
-                <p className="text-zinc-600">Domingo: 16h - 22h</p>
+                <p className="text-zinc-600">Qua - 18h - 22h</p>
+                <p className="text-zinc-600">Qui - 18h - 00h</p>
+                <p className="text-zinc-600">Sex - Sab: 18h - 01h</p>
+                <p className="text-zinc-600">Domingo: 12h - 15h</p>
               </div>
             </div>
           </motion.div>
