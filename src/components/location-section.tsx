@@ -5,7 +5,7 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 
 export default function LocationSection() {
   return (
-    <section className="py-16 md:py-24 bg-white relative">
+    <section className="py-16 md:py-24 bg-white relative overflow-x-hidden">
       {/* Bottom gradient */}
       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black via-black/20 to-transparent" />
       <div className="container mx-auto px-4">
