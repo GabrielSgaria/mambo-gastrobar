@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "Mambo Gastro Bar",
     images: [
       {
-        url: "https://www.mambogastrobar.com/images/reveillon-2025.jpg",
+        url: "/favicon.png",
         width: 1200,
         height: 630,
         alt: "Mambo Gastro Bar Réveillon 2025",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mambo Gastro Bar - Réveillon 2025",
     description: "Celebre o Réveillon 2025 com gastronomia excepcional e música ao vivo no Mambo Gastro Bar.",
-    images: ["https://www.mambogastrobar.com/images/reveillon-2025.jpg"],
+    images: ["/favicon.png"],
     creator: "@mambogastrobar",
   },
   robots: {
@@ -83,11 +83,6 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/favicon.png",
-  },
-  manifest: "/site.webmanifest",
-  verification: {
-    google: "google-site-verification-code",
-    yandex: "yandex-verification-code",
   },
 };
 
